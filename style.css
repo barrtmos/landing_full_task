@@ -1,0 +1,156 @@
+:root {
+  --bg: #0a0d12;
+  --bg-soft: #11161d;
+  --text: #d7e2ef;
+  --muted: #8d9db1;
+  --line: #1f2b38;
+  --accent: #11d4b3;
+  --accent-soft: rgba(17, 212, 179, 0.18);
+  --danger: #ff5f79;
+  --success: #17d884;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, #1b2430 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, #122129 0%, transparent 35%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(760px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  background: linear-gradient(180deg, rgba(17, 22, 29, 0.92), rgba(10, 13, 18, 0.96));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  margin: 0;
+  letter-spacing: 0.08em;
+  font-size: clamp(26px, 5vw, 40px);
+  line-height: 1;
+  color: #f3f8ff;
+}
+
+.subtitle {
+  margin: 10px 0 20px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.video-wrap {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+}
+
+.timer-area {
+  margin-top: 14px;
+  min-height: 24px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.lead-form {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 12px;
+  color: var(--text);
+  background: var(--bg-soft);
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+button {
+  margin-top: 4px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #091015;
+  padding: 12px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.error {
+  margin: 0;
+  min-height: 16px;
+  font-size: 12px;
+  color: var(--danger);
+}
+
+.status-message {
+  margin: 14px 0 0;
+  min-height: 20px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.status-message.success {
+  color: var(--success);
+}
+
+.status-message.error {
+  color: var(--danger);
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+}

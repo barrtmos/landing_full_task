@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Signal</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <h1 class="title">CYBER SIGNAL</h1>
+      <p class="subtitle">Watch at least 30 seconds to unlock access form.</p>
+
+      <div class="video-wrap">
+        <video id="promoVideo" class="video" controls preload="metadata">
+          <source src="./video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div id="timerArea" class="timer-area">Wait: <span id="timerValue">30</span> sec</div>
+
+      <form id="leadForm" class="lead-form hidden">
+        <div class="field">
+          <label for="firstName">First name</label>
+          <input id="firstName" name="first_name" type="text" minlength="2" maxlength="255" required>
+          <p class="error" data-error-for="first_name"></p>
+        </div>
+
+        <div class="field">
+          <label for="lastName">Last name</label>
+          <input id="lastName" name="last_name" type="text" minlength="2" maxlength="255" required>
+          <p class="error" data-error-for="last_name"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" maxlength="255" required>
+          <p class="error" data-error-for="email"></p>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" minlength="13" maxlength="16" pattern="^\+[1-9]\d{11,14}$" placeholder="+14155552671" required>
+          <p class="error" data-error-for="phone"></p>
+        </div>
+
+        <button id="submitBtn" type="submit">Send</button>
+      </form>
+
+      <p id="statusMessage" class="status-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
