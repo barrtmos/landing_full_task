@@ -1,5 +1,5 @@
 // === API SETTINGS ===
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "https://api_server_full_task-ssqsa23k.on-forge.com";
 
 // === BINOM SETTINGS ===
 const BINOM_DOMAIN = "https://clixtream.com";
