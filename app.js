@@ -1,9 +1,6 @@
 // === API SETTINGS ===
 const API_BASE_URL = "https://api_server_full_task-ssqsa23k.on-forge.com";
 
-// === BINOM SETTINGS ===
-const BINOM_DOMAIN = "https://clixtream.com";
-
 const WATCH_SECONDS_REQUIRED = 30;
 const PHONE_STRICT_REGEX = /^\+[1-9]\d{11,14}$/;
 
@@ -12,7 +9,6 @@ const tracking = {
   pixelId: params.get("s3") || "",
   p1: params.get("p1") || "",
   fbclid: params.get("fbclid") || "",
-  clickid: params.get("clickid") || "",
 };
 
 const video = document.getElementById("promoVideo");
@@ -25,7 +21,6 @@ const submitBtn = document.getElementById("submitBtn");
 let watchedSeconds = 0;
 let lastTime = 0;
 let formUnlocked = false;
-let binomEvent1Sent = false;
 let leadTracked = false;
 
 initPixel(tracking.pixelId);
@@ -189,22 +184,19 @@ function trackFacebook(eventName) {
 }
 
 function fireBinomEvent1() {
-  if (binomEvent1Sent || !tracking.clickid) {
-    return;
-  }
-
-  const img = new Image();
-  img.src = `${BINOM_DOMAIN}/click?upd_clickid=${encodeURIComponent(tracking.clickid)}&event1=1`;
-  binomEvent1Sent = true;
+  BPixelJS.update({
+    url: 'https://clixtream.com/click',
+    updateKey: '',
+    tokens: {
+      add_event1: '1'
+    }
+  });
 }
 
 function fireBinomConversion() {
-  if (!tracking.clickid) {
-    return;
-  }
-
-  const img = new Image();
-  img.src = `${BINOM_DOMAIN}/click?cnv_id=${encodeURIComponent(tracking.clickid)}`;
+  BPixelJS.conversion({
+    url: 'https://clixtream.com/click'
+  });
 }
 
 function showValidationErrors(errors) {
